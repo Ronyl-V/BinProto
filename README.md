@@ -186,7 +186,7 @@ struct SensorReading {
 }
 ```
 
-> ⚠️ Les proc-macros Rust doivent obligatoirement être dans une crate séparée avec `proc-macro = true`. C'est pourquoi `derive/` reste un sous-dossier indépendant avec son propre `Cargo.toml`.
+> Les proc-macros Rust doivent obligatoirement être dans une crate séparée avec `proc-macro = true`. C'est pourquoi `derive/` reste un sous-dossier indépendant avec son propre `Cargo.toml`.
 
 ---
 
