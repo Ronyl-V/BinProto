@@ -1,0 +1,54 @@
+[package]
+name = "binproto"
+version = "0.1.0"
+edition = "2021"
+description = "Framework de protocole binaire réseau — BinProto"
+
+# ── Bibliothèque principale ──────────────────────────────────────────────────
+
+[lib]
+name = "binproto"
+path = "src/lib.rs"
+
+# ── Binaires ─────────────────────────────────────────────────────────────────
+
+
+[[bin]]
+name = "server"
+path = "src/bin/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/bin/client.rs"
+
+[[bin]]
+name = "debugger"
+path = "src/bin/debugger.rs"
+
+# ── Benchmarks ────────────────────────────────────────────────────────────────
+
+[[bench]]
+name = "encoding_benchmark"
+harness = false
+
+# ── Dépendances principales ───────────────────────────────────────────────────
+
+[dependencies]
+tokio     = { version = "1", features = ["full"] }
+ratatui   = "0.26.3"
+crossterm = "0.27.0"
+
+# ── Dépendances de dev/bench uniquement ──────────────────────────────────────
+
+[dev-dependencies]
+criterion  = { version = "0.5", features = ["html_reports"] }
+serde      = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# ── Workspace : inclut la crate derive séparée ───────────────────────────────
+
+[workspace]
+members = [
+    ".",
+    "derive",
+]
